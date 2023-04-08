@@ -21,9 +21,18 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginButton;
 
     private ProgressBar progressBar;
+
+    private BlogPreference preference;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+
+        preference = new BlogPreference(this);
+        if(preference.isLoggedIn()){
+            startMainActivity();
+            finish();
+            return;
+        }
 
         setContentView(R.layout.activity_login);
 
@@ -98,6 +107,8 @@ public class LoginActivity extends AppCompatActivity {
 
     //Loading indicator
     private void proformLogin(){
+        preference.setLoggedIn(true);
+
         textUsernameLayout.setEnabled(false);
         textPasswordInput.setEnabled(false);
         loginButton.setVisibility(View.INVISIBLE);
