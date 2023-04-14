@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
             showErrorDialog();
         }
         else{
-            proformLogin();
+            performLogin();
         }
     }
 
@@ -106,7 +106,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     //Loading indicator
-    private void proformLogin(){
+    private void performLogin(){
         preference.setLoggedIn(true);
 
         textUsernameLayout.setEnabled(false);
